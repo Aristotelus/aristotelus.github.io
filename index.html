@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<title>aristotelus - demo</title>
+    <style>
+        body{
+            background-image: url(https://c2.staticflickr.com/4/3885/14846864595_ec367db5cb_z.jpg);
+        }
+        .shaded{
+            background-color: rgba(255, 255, 255, 0.62);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shaded container text-center">
+<h1>Aristotelus</h1>
+        <br>
+        <img src="http://i.piccy.info/i9/42f094d65f9a1b82887e023656a62003/1407364158/9202/778298/title92014375.png"/>
+        <br>
+        <p>Aristotelus is a web-service which helps video-creators (producers, directors, screenwriters, youtubers) with ideas for video-content by means of generator. </p><p>The ideas are currently generated from existing ones collected over <a href="http://www.pinterest.com/dimaswami/aristotelus/">here</a>.</p><br>
+    <h1><i><b><p id="idea"></p></b></i></h1>
+
+        <p>
+            <br>
+  <button type="button" class="btn btn-primary btn-lg" onclick="pinIdeasRandomizer(2)"><span class="glyphicon glyphicon-cog"></span> Generate another one</button>
+            </p>
+    </div>
+<script>
+var levelOfSplitting = 2;
+
+var pinIdeasRandomizer = function (levelOfSplitting) {
+    var countWords = function (sentance) {
+        var wordsArray = sentance.split(" ");
+        return wordsArray.length;
+
+    };
+    var getWords = function (str, from, to) {
+        return str.split(/\s+/).slice(from, to).join(" ") + " ";
+    };
+
+    var resultElem = document.getElementById("idea");
+    var pinArray =["Gamers play video games at BDSM-torture (Player vs Pain)","Comedians in vintage cars go for a coffee (Comedians In Cars Getting Coffee)","The guy gives a pop financial advice (It's Only Money / Es Solo Dinero)","How to cook a cocktails (How to Make a Cocktail)","Celebrities show off their gadgets (CNETs Hooked Up)","Sports stars explain the meaning of his tattoos (My Inc)","Popular actor asks celebrities about their first sexual experience (Losing Your Virginity With John Stamos)","Women's fantasies about what guys are doing at the bachelorette party (Guy Time)","Fashion look in 60 seconds (60 Seconds to Chic - Vogue.TV)","Cheerful chef prepares a burger with friends on a new recipe and a lot of jokes along the way (Burger Lab)","About the new technology and media startups of celebrities (Acting Disruptive)","Inside look at the extraordinary construction projects, factories, laboratories and other technical attractions through eyes of the people who work there (The Window)","Documentary about the everyday working life of the popular comic site Cheezburger (LOLwork)","Presentation of startup to investor for 2 minutes in an elevator (iLIFT)","A day in the life of celebrities (A Day In The Life)","Parody cartomancy to celebrities (The Future with Emily Heller)","Parody cartomancy to celebrities (The Future ft...)","Comedians talk to Twitter tape other comedians (Conversations with a Twitter Feed)","Rap-news and talk with guests from Snoop Dog (GGN)","Man hunts for teens who troll his videos and, in turn, trolls themselves (Eric Finley: comment counselor)","The study of contemporary culture with a new generation of creatives (Thrash Lab Profiles)","Chef travels to America's Food Festival (Blue Ribbon Hunter)","Culinary tips and tricks for a minute and second (Cooking 1:01)","Fitness by beautiful actress (Reluctantly Healthy)","Yutubers tell stories of its appearance on YouTube (Creator Stories)","Parody on organic agriculture and the humane treatment of animals from fast food Chipotle (Farmed and Dangerous)","Two fashion editors criticize men's fashion (Fashion Bros)","Professional dancer travels around the world, revealing the various dance and music culture (Bare Feet)","Workdays editor in chief of Vogue (Inside Vogue)","How to success on YouTube (Anatomy of a YouTuber)","Fifty prompt questions to celebrities in their own homes (Vogue Diaries)","Reviews of fictional technology taken from masterpieces of pop culture (Technium)","Documentary about how the actress-singer writes first album (Breaking the record)","Tricks and tips of filmmaking in three minutes (DIY Filmmaking Studio Tricks and Tips in Three Minutes)","Parodies of popular TV shows from fast food network (ToastyTV)","Stupid questions to passersby on the streets of New York (Billy on the Street)","Modern adaptation of Peter Pan stories (The New Adventures of Peter and Wendy)","Steve Buscemi talks with celebrities on a bench in the park (Park Bench)","Reality show about fashion with the casting director in the center of the plot (Model Files)","Glamour editor interviews celebrities in the workplace (Step Into My Office)","Sister of pop group spend the summer without parents (Summer with Cimorelli)","Destroyers of internet myths (Debunk'd)","Six people from the post-apocalyptic future trying to return back to the present to save humanity and their own lives (Collider)","Debtors anonymous meetings (The Program)","Gay couple against lesbian couple (Tough Love)","Successful entrepreneurs opens up secrets of his business success (Business secrets with Oleg Tinkoff)","Star racer inspects iconic garages (Garage Tours)","Three advertising agencies in the tender for the creation of an advertising campaign Range Rover Evoqu (Creatives)","The hard life of a single mother, worked as a prostitute (Blue)","Weekdays of studio that produces original snowboards (Every Third Thursday)","Black man pretends to be stupid white chick (Advenchures wit Laquetta)","Drunk dude tells the history of US (Drunk History)","Nerd hacking and modding gadgets and consumer electronics (The Ben Heck Show)","Jeweler-celebrity carries out orders of their star clients (Ben Baller)","A guy interviews celebrities between two ferns (Between Two Ferns with Zach Galifianakis)","Viral video lessons (Viral Video Film School)","Weekly satire of clothes and behavior of celebrities (Infamous With Taryn Southern)","Real and virtual life of players in a video games (The Guild)","Simulated parody shooter with funny comments (Red vs. Blue)","Parody rap battles of celebrities (Epic Rap Battles of History)","Slow playback action shot high speed HD-camera (The Slow Mo Guys)","A guy in a blender mixes different things (Will it Blend?)","Parody on political advertising (30 Seconds Over Washington)","Stupid answers to stupid questions (What If?)","Friendship, love and war of students in video game high school (Video Game High School)","Four popular youtubers are laugh by Viddy video (Viddy-O-Show)","Animate orange prank different fruits on a kitchen (Annoying Orange)","Crazy ideas for parody on Kickstarter (Thingstarter)","Dukes rob banks (Robin Banks and the Bank Roberts)","Comedy actress fun prepares cocktails (You Deserve a Drink)","Short video biography of black athletes, activists, artists, actors, rappers, writers (Black History Month)","YouTube star reflects on cosmetics and makeup advertises (Grace's Faces // I love makeup)"];
+
+    var result = "";
+
+    for (var j = 0; j < levelOfSplitting; j++) {
+        var randomIndex = Math.floor(Math.random() * pinArray.length);
+        var randomString = pinArray[randomIndex].replace(/\(.*?\)/, "");
+
+        var words = countWords(randomString);
+        var words2take = countWords(randomString) / levelOfSplitting;
+        if (!words2take) {
+            words2take = 1;
+        }
+        var end = j === levelOfSplitting - 1 ? words : j * words2take + words2take;
+        result += getWords(randomString, j * words2take, end);
+    }
+    resultElem.innerHTML = result;
+};
+    pinIdeasRandomizer(2);
+    </script>
+</body>
+    </html>
